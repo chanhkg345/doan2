@@ -1,0 +1,15 @@
+{% extends 'quanlysinhvien/base.html' %}
+    {% block content %}
+        <h2>Diện chính sách</h2>
+        {% if dcs %}
+        <p> Danh sách diện chính sách: </p>
+        	{% for item in dcs %}        
+                {{ item.id }}
+        		{{ item.tendcs }}
+                {{ item.tilegiamhocphi }}
+            <br>
+        	{% endfor %}
+        {% else %}
+        	<h3> Không có diện chính sách nào </h1>
+        {% endif %}
+    {% endblock %}

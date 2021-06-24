@@ -1,0 +1,8 @@
+{% extends 'quanlysinhvien/base.html' %}
+    {% block content %}
+    <form action="{% url 'timkiem:timkiemmssv' %}" method="post">
+        {% csrf_token %}
+        <input type="search" placeholder="Nhập Mã SV/Họ tên" name="timkiem">
+        <button type="submit">Tìm kiếm</button>
+    </form>
+    {% endblock %}

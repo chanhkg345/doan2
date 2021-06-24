@@ -1,0 +1,81 @@
+{% extends 'quanlysinhvien/base.html' %}
+    {% block content %}
+<div class="row py-5">
+    <div class="col-lg-10 mx-auto">
+      <div class="card rounded shadow border-0">
+        <div class="card-body p-5 bg-white rounded">
+          <div class="table-responsive">
+            <h1>Thống kê số tín chỉ của sinh viên </h1><br>
+            <table style="width:100%" class="table table-striped table-bordered">
+                <thead class=' text-primary'>
+                    <div>
+                        <h2>Theo học kỳ </h2>
+                        <form action="{% url 'sinhvien:kqthongketinchihk' %}" method="post">
+
+                            <th>Sinh viên cần thống kê</th><th>Học kỳ cần thống kê</th><th></th>
+                            {% csrf_token %}
+                            <tr>
+                               <td>
+                                   {{ tk2.sinhvien }}
+                               </td>
+                                <td>
+                                   {{ tk2.hocky }}
+                               </td>
+                                <td>
+                                    <button type="submit" name="thongketchk">Thống kê</button>
+                                </td>
+                            </tr>
+                        </form>
+                    </div>
+                </thead>
+            </table>
+
+
+              <table style="width:100%" class="table table-striped table-bordered">
+                <thead class=' text-primary'>
+                    <div>
+                        <h3>Cả năm học </h3>
+
+                            <th>Sinh viên cần thống kê</th><th></th>
+                        <form action="{% url 'sinhvien:kqthongketinchi' %}" method="post">
+                            {% csrf_token %}
+                            <tr>
+                               <td>
+                                   {{ tk1.sinhvien }}
+                               </td>
+                                <td>
+                                    <button type="submit" name="thongketc">Thống kê</button>
+                                </td>
+                            </tr>
+                        </form>
+                    </div>
+                </thead>
+            </table>
+
+              <table style="width:100%" class="table table-striped table-bordered">
+                <thead class=' text-primary'>
+                    <div>
+                        <h3>Sinh viên có số tín chỉ đăng ký nhiều nhất theo học kỳ </h3>
+
+                            <th>Học kỳ cần thống kê</th><th></th>
+                        <form action="{% url 'sinhvien:kqthongketinchihkmax' %}" method="post">
+                            {% csrf_token %}
+                            <tr>
+                               <td>
+                                   {{ tk3.hocky }}
+                               </td>
+                                <td>
+                                    <button type="submit" name="thongketchkmax">Thống kê</button>
+                                </td>
+                            </tr>
+                        </form>
+                    </div>
+                </thead>
+            </table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+    {% endblock %}

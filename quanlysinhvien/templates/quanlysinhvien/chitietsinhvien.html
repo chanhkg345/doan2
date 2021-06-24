@@ -1,0 +1,49 @@
+{% extends 'quanlysinhvien/base.html' %}
+    {% block content %}
+        {% if ct %}
+<h2>Thông tin sinh viên</h2>
+<div class="card-body">
+    <div class="table-responsive">
+        <table class="table">
+            {% for item in ct %}
+                <tr>
+                    <td class=' text-primary'>Mã sinh viên:</td><td>{{ item.mssv }}</td>
+                </tr>
+                <tr>
+                    <td class=' text-primary'>Tên sinh viên:</td><td> {{ item.tensv }}<br></td>
+                </tr>
+                <tr>
+                    <td class=' text-primary'>Giới tính:</td><td> {{ item.phai }}</td>
+                </tr>
+                    <td class=' text-primary'>Quê quán:</td><td> {{ item.quequan }}</td>
+                </tr>
+                <tr>
+                    <td class=' text-primary'>Khoa:</td><td> {{item.makhoa}}</td>
+                </tr>
+                <tr>
+                    <td class=' text-primary'>Diện chính sách:</td><td> {{ item.madcs}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+            {% if tghp %}
+                {% for i in hk %}
+            <table class="table">
+                    <h3>{{ i.tenhk }}</h3>
+                    {% for j in tghp %}
+                        {% if i.mahk == j.tenhk %}
+                        <tr><td></td></tr>
+                        <tr>
+                            <td class=' text-primary'>Tên học phần:</td><td>{{ j.mahp }}</td>
+                        </tr>
+                        <tr>
+                            <td class=' text-primary'>Điểm:</td><td>{{ j.diem }}</td>
+                        </tr>
+                        {% endif %}
+                    {% endfor %}
+            </table>
+                {% endfor %}
+            {% endif %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

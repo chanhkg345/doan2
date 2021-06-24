@@ -1,0 +1,107 @@
+{% extends 'quanlysinhvien/base.html' %}
+    {% block content %}
+        {% if timkiem %}
+            <h1> Kết quả tìm kiếm của " {{ tk }} " </h1>
+            {% if tkmssv %}
+                <div class="row py-5">
+                    <div class="col-lg-10 mx-auto">
+                        <div class="card rounded shadow border-0">
+                            <div class="card-body p-5 bg-white rounded">
+                                <div class="table-responsive">
+                                    <table style="width:100%" class="table table-striped table-bordered">
+                                        <thead class=' text-primary'>
+                                            <th>Mã số sinh viên</th><th>Họ tên sinh viên</th><th>Khoa</th><th>Diện chính sách</th>
+                                                {% for item in tkmssv %}
+                                                    <tr>
+                                                        <td><a href="{% url 'sinhvien:ctsv' item.mssv %}">{{ item.mssv }}</a></td>
+                                                        <td><a href="{% url 'sinhvien:ctsv' item.mssv %}">{{ item.tensv }}</a></td>
+                                                        <td><a href="{% url 'sinhvien:ctsv' item.mssv %}">{{ item.makhoa }}</a></td>
+                                                        <td><a href="{% url 'sinhvien:ctsv' item.mssv %}">{{ item.madcs }}</a></td>
+                                                    </tr>
+                                                {% endfor %}
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            {% elif tkten  %}
+                <div class="row py-5">
+                    <div class="col-lg-10 mx-auto">
+                        <div class="card rounded shadow border-0">
+                            <div class="card-body p-5 bg-white rounded">
+                                <div class="table-responsive">
+                                    <table style="width:100%" class="table table-striped table-bordered">
+                                        <thead class=' text-primary'>
+                                            <th>Mã số sinh viên</th><th>Họ tên sinh viên</th><th>Khoa</th><th>Diện chính sách</th>
+                                                {% for item in tkten %}
+                                                    <tr>
+                                                        <td><a href="{% url 'sinhvien:ctsv' item.mssv %}">{{ item.mssv }}</a></td>
+                                                        <td><a href="{% url 'sinhvien:ctsv' item.mssv %}">{{ item.tensv }}</a></td>
+                                                        <td><a href="{% url 'sinhvien:ctsv' item.mssv %}">{{ item.makhoa }}</a></td>
+                                                        <td><a href="{% url 'sinhvien:ctsv' item.mssv %}">{{ item.madcs }}</a></td>
+                                                    </tr>
+                                                {% endfor %}
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% elif tkkhoa  %}
+                <div class="row py-5">
+                    <div class="col-lg-10 mx-auto">
+                        <div class="card rounded shadow border-0">
+                            <div class="card-body p-5 bg-white rounded">
+                                <div class="table-responsive">
+                                    <table style="width:100%" class="table table-striped table-bordered">
+                                        <thead class=' text-primary'>
+                                            <th>Mã số sinh viên</th><th>Họ tên sinh viên</th><th>Khoa</th><th>Diện chính sách</th>
+                                                {% for item in tkkhoa %}
+                                                    <tr>
+                                                        <td><a href="{% url 'sinhvien:ctsv' item.mssv %}">{{ item.mssv }}</a></td>
+                                                        <td><a href="{% url 'sinhvien:ctsv' item.mssv %}">{{ item.tensv }}</a></td>
+                                                        <td><a href="{% url 'sinhvien:ctsv' item.mssv %}">{{ item.makhoa }}</a></td>
+                                                        <td><a href="{% url 'sinhvien:ctsv' item.mssv %}">{{ item.madcs }}</a></td>
+                                                    </tr>
+                                                {% endfor %}
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% elif tkdcs  %}
+                <div class="row py-5">
+                    <div class="col-lg-10 mx-auto">
+                        <div class="card rounded shadow border-0">
+                            <div class="card-body p-5 bg-white rounded">
+                                <div class="table-responsive">
+                                    <table style="width:100%" class="table table-striped table-bordered">
+                                        <thead class=' text-primary'>
+                                            <th>Mã số sinh viên</th><th>Họ tên sinh viên</th><th>Khoa</th><th>Diện chính sách</th>
+                                                {% for item in tkdcs %}
+                                                    <tr>
+                                                        <td><a href="{% url 'sinhvien:ctsv' item.mssv %}">{{ item.mssv }}</a></td>
+                                                        <td><a href="{% url 'sinhvien:ctsv' item.mssv %}">{{ item.tensv }}</a></td>
+                                                        <td><a href="{% url 'sinhvien:ctsv' item.mssv %}">{{ item.makhoa }}</a></td>
+                                                        <td><a href="{% url 'sinhvien:ctsv' item.mssv %}">{{ item.madcs }}</a></td>
+                                                    </tr>
+                                                {% endfor %}
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+            <p>Không tìm thấy sinh viên nào</p>
+
+            {% endif %}
+        {% endif %}
+    {% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'quanlysinhvien/base.html' %}
+    {% block content %}
+<div class="row py-5">
+    <div class="col-lg-10 mx-auto">
+      <div class="card rounded shadow border-0">
+        <div class="card-body p-5 bg-white rounded">
+          <div class="table-responsive">
+            <h2>Thống kê điểm</h2><br>
+            <table style="width:100%" class="table table-striped table-bordered">
+                <thead class=' text-primary'>
+
+                    <tr>
+                        <form action="{% url 'sinhvien:kqthongkediemhp' %}" method="post">
+                            {% csrf_token %}
+                            <h3>Học phần</h3>
+                        <td>{{ tk1.hocphan }}</td>
+                        <td>
+                                <button type="submit" name="thongke">Thống kê</button>
+                        </td>
+                        </form>
+                    </tr>
+                </thead>
+            </table>
+            <table style="width:100%" class="table table-striped table-bordered">
+                <thead class=' text-primary'>
+                    <tr>
+                        <form action="{% url 'sinhvien:kqthongkediemmax' %}" method="post">
+                            {% csrf_token %}
+                            <h3>Sinh viên có điểm cao nhất của học phần:</h3>
+                        <td>{{ tk2.hocphan }}</td>
+                        <td>
+                                <button type="submit" name="thongke">Thống kê</button>
+                        </td>
+                        </form>
+                    </tr>
+                </thead>
+            </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+    {% endblock %}

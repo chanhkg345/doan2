@@ -1,0 +1,69 @@
+{% extends 'quanlysinhvien/base.html' %}
+    {% block content %}
+
+
+
+<div class="row py-5">
+    <div class="col-lg-10 mx-auto">
+      <div class="card rounded shadow border-0">
+        <div class="card-body p-5 bg-white rounded">
+          <div class="table-responsive">
+              <h1>Thống kê sinh viên </h1><br>
+                <table style="width:100%" class="table table-striped table-bordered">
+                    <thead class=' text-primary'>
+                    <h2>Theo khoa</h2>
+                        <form action="{% url 'sinhvien:kqthongkekh' %}" method="post">
+                            <th>Khoa cần thống kê</th><th></th>
+                                <tr>
+                                            {% csrf_token %}
+                                           <td>{{ tk1.khoa }}</td>
+                                            <td><button type="submit" name="thongkekh">Thống kê</button></td>
+                                </tr>
+                        </form>
+                    </thead>
+                </table>
+                <table style="width:100%" class="table table-striped table-bordered">
+                    <thead class=' text-primary'>
+                    <h2>Theo Quê quán</h2>
+                    <form action="{% url 'sinhvien:kqthongkeqq' %}" method="post">
+                        <th>Nơi cần thống kê</th><th></th>
+                        <tr>
+                            {% csrf_token %}
+                            <td> {{ tk4.quequan }}</td>
+                            <td><button type="submit" name="thongkeqq">Thống kê</button></td>
+                        </tr>
+                    </form>
+                    </thead>
+                </table>
+                <table style="width:100%" class="table table-striped table-bordered">
+                    <thead class=' text-primary'>
+                    <h2>Theo Diện chính sách</h2>
+                    <form action="{% url 'sinhvien:kqthongkedcs' %}" method="post">
+                        <th>Diện chính sách cần thống kê</th><th></th>
+                        <tr>
+                            {% csrf_token %}
+                           <td> {{ tk2.dienchinhsach }}</td>
+                            <td><button type="submit" name="thongkedcs">Thống kê</button></td>
+                        </tr>
+                    </form>
+                    </thead>
+                </table>
+                <table style="width:100%" class="table table-striped table-bordered">
+                    <thead class=' text-primary'>
+                        <h2>Theo học phần</h2>
+                        <form action="{% url 'sinhvien:kqthongkehp' %}" method="post">
+                            <th>Khoa cần thống kê</th><th></th>
+                            <tr>
+                                {% csrf_token %}
+                                <td>{{ tk3.hocphan }}</td>
+                                <td> <button type="submit" name="thongke">Thống kê</button></td>
+                            </tr>
+                        </form>
+                    </thead>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    {% endblock %}

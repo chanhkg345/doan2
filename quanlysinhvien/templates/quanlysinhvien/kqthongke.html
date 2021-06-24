@@ -1,0 +1,35 @@
+{% extends 'quanlysinhvien/base.html' %}
+    {% block content %}
+        {% if temp %}
+            <div class="row py-5">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card rounded shadow border-0">
+                        <div class="card-body p-5 bg-white rounded">
+                            <div class="table-responsive">
+                                <table style="width:100%" class="table table-striped table-bordered" id="sv">
+                                    <thead class=' text-primary'>
+                                    <h2> Danh sách sinh viên: </h2>
+                                        <tr><th>Mã số sinh viên</th><th>Họ tên sinh viên</th><th>Quê quán</th><th>Khoa</th><th>Diện chính sách</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for item in temp %}
+                                            <tr>
+                                                <td><a href="{% url 'sinhvien:ctsv' item.mssv %}">{{ item.mssv }}</a></td>
+                                                <td><a href="{% url 'sinhvien:ctsv' item.mssv %}">{{ item.tensv }}</a></td>
+                                                <td><a href="{% url 'sinhvien:ctsv' item.mssv %}">{{ item.quequan }}</a></td>
+                                                <td><a href="{% url 'sinhvien:ctsv' item.mssv %}">{{ item.makhoa }}</a></td>
+                                                <td><a href="{% url 'sinhvien:ctsv' item.mssv %}">{{ item.madcs }}</a></td>
+                                            </tr>
+                                        {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+        	<h3> Không có sinh viên nào </h3>
+        {% endif %}
+    {% endblock %}

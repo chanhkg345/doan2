@@ -1,0 +1,13 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+<a href="{% url 'admin:index' %}">{% translate 'Home' %}</a>
+&rsaquo; {{ title }}
+</div>
+{% endblock %}
+
+{% block content %}
+<p>{% translate 'Đã xảy ra lỗi với cài đặt cơ sở dữ liệu của bạn. Đảm bảo rằng các bảng cơ sở dữ liệu thích hợp đã được tạo và đảm bảo rằng người dùng thích hợp có thể đọc được cơ sở dữ liệu.' %}</p>
+{% endblock %}
